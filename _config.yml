@@ -8,24 +8,24 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Baixi Sun / Site Title"
+title                    : "Baixi Sun / 孙百西"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "personal description"
 url                      : https://sunbaixi.com
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "Presciman/Presciman.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile_baixi.png"
   name             : "Baixi Sun"
   pronouns         : he/his # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Bloomington, Indiana, United States"
+  bio              : "Baixi Sun is a Ph.D. Candidate at Luddy School of Informatics, Computing, and Engineering."
+  location         : "Bloomington, IN, USA"
   employer         : "Indiana University"
   uri              : # URL
   email            : "sunbaix@iu.edu" 
@@ -49,7 +49,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # "bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -58,7 +58,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : https://www.linkedin.com/in/baixi-sun-852005139
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
