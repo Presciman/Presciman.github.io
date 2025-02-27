@@ -24,6 +24,7 @@ Selected Publications
 
 Recent Awards
 ======
+2025 NSF PPoPP Travel Grant\
 2024 SIGHPC SC Student Travel Grants (1st)\
 2024 SIGHPC SC Student Travel Grants (2nd)\
 2022 SIGHPC Student Research Competition Travel Grants
