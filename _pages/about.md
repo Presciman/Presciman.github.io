@@ -57,7 +57,7 @@ ENGR_E 516: Engineering Cloud Computing\
 **Fall 2024** Associate Instructor, ISE (Indiana University Bloomington)\
 ENGR_E 516: Engineering Cloud Computing\
 **Spring 2021** Teaching assistant, EECS (Washington State University)\
-CPT_S 460: Operating Systems and Computer Architecture\
+CPT_S 460: Operating Systems and Computer Architecture
 
 Other Publications
 ======
