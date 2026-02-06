@@ -39,15 +39,16 @@ Selected Publications
 
 Invited Talk
 ======
-* 2025 ENGR-E 516 Engineering Cloud Computing Guest Lecturer.
+* 2025 ENGR-E 516 Engineering Cloud Computing Guest Lecturer. [Link](https://sunbaixi.com/files/E516_Guest_lecture.pptx)
 * 2023 Argonne Summer Student Seminar [Link](https://www.anl.gov/event/2023-summer-student-presentations).
+* 2023 FZ Workshop Annual Meeting. [Link](https://sunbaixi.com/files/FZ_proj_talk_091523.pptx)
 
 Recent Awards
 ======
-* 2025 SC Student Travel Award\
-* 2025 NSF PPoPP Travel Grant\
-* 2024 SIGHPC SC Student Travel Grants (1st)\
-* 2024 SIGHPC SC Student Travel Grants (2nd)\
+* 2025 SC Student Travel Award
+* 2025 NSF PPoPP Travel Grant
+* 2024 SIGHPC SC Student Travel Grants (1st)
+* 2024 SIGHPC SC Student Travel Grants (2nd)
 * 2022 SIGHPC Student Research Competition Travel Grants
 
 Teaching
