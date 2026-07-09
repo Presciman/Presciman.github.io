@@ -8,11 +8,18 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. candidate at the Luddy School of Informatics, Computing, and Engineering at Indiana University, Bloomington (IU). I obtained a master's degree (MS) in Computer Science at the University of California, Riverside (UCR). My research interests include Large-scale AI Systems, High-performance Computing, Distributed Training and Inference, and Data Compression.
+I am a Postdoctoral Appointee at the Argonne Leadership Computing Facility (ALCF). My research centers on scalable data infrastructure and software systems for artificial intelligence (AI), as well as AI-driven methods for efficient data management.
+
+I received my Ph.D. in Intelligent Systems Engineering from Indiana University Bloomington, under the supervision of Dr. Fengguang Song. My dissertation explored efficient data management across storage and memory, communication, and compression for scalable AI training and inference. Before that, I earned an M.S. in Computer Science from the University of California, Riverside.
+
+My research interests include AI for large-scale data infrastructure, high-performance computing, and AI Agents.
+
+
+
 
 News
 ======
-* I am graduating and actively looking for positions starting June 2026!
+* I joined Argonne Leadership Computing Facility (ALCF) as a postdoctoral appointee!
 
 * Collaborating with IU Medical School exploring early stage cancer detection via tissue image and SNP analysis!
 
@@ -24,7 +31,8 @@ News
 
 Research Vision
 ======
-Build next-generation high-performance AI systems infrastructure for large-scale foundation models, and scientific AI on heterogeneous supercomputing platforms, in close collaboration with national laboratories and industry. I aim to close the performance gap between modern AI workloads and HPC architectures, through algorithm–system co-design across data, communication, memory, and accelerators.
+Build next-generation, high-performance AI systems and data infrastructure for large-scale foundation models and scientific AI on heterogeneous supercomputing platforms. I aim to close the performance gap between modern AI workloads and HPC architectures through algorithm–system co-design across data, communication, memory, and accelerators.
+
 
 
 Selected Publications
