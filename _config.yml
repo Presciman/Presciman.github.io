@@ -24,11 +24,11 @@ author:
   avatar           : "Baixi_profile3.jpg"
   name             : "Baixi Sun"
   pronouns         : he/his # example: "she/her"  
-  bio              : "Baixi Sun is a Ph.D. Candidate at Luddy School of Informatics, Computing, and Engineering."
-  location         : "Bloomington, IN, USA"
-  employer         : "Indiana University"
+  bio              : "Ph.D. in Computer Engineering, Indiana University."
+  location         : "Lemont, IL, USA"
+  employer         : "Argonne Leadership Computing Facility (ALCF)"
   uri              : # URL
-  email            : "sunbaix@iu.edu" 
+  email            : "bsun@anl.gov" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
