@@ -40,118 +40,111 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+/* ==========================================================================
+   DOS / TERMINAL THEME  (light — white background, monospace)
+   ========================================================================== */
+
 :root {
-  --bg: #07111f;
-  --bg-soft: #0d1b2d;
-  --panel: rgba(13, 27, 45, 0.78);
-  --panel-strong: rgba(11, 23, 38, 0.92);
-  --text: #e7edf7;
-  --text-muted: #9fb0c7;
-  --heading: #f7fbff;
-  --accent: #76e4f7;
-  --accent-strong: #7c5cff;
-  --accent-warm: #ffd166;
-  --border: rgba(159, 176, 199, 0.18);
-  --shadow: 0 20px 60px rgba(2, 8, 23, 0.45);
-  --radius-lg: 28px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
-  --content-width: 1240px;
+  --bg: #f4f4ec;            /* off-white "paper" */
+  --paper: #ffffff;         /* pure white panels */
+  --ink: #1a1a1a;           /* near-black text */
+  --ink-soft: #444444;      /* muted text */
+  --line: #1a1a1a;          /* box-drawing lines */
+  --accent: #0000aa;        /* classic DOS blue */
+  --accent-2: #008080;      /* DOS teal */
+  --amber: #aa5500;         /* amber highlight */
+  --titlebar-bg: #0000aa;   /* DOS window title bar */
+  --titlebar-fg: #ffffff;
+  --content-width: 1180px;
+  --mono: "IBM Plex Mono", "Courier New", ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(124, 92, 255, 0.22), transparent 30%),
-    radial-gradient(circle at top right, rgba(118, 228, 247, 0.18), transparent 28%),
-    linear-gradient(180deg, #091220 0%, #07111f 38%, #0a1526 100%);
-  background-attachment: fixed;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(circle at center, black 38%, transparent 90%);
-  opacity: 0.35;
-}
-
-body,
-.layout--single,
-.layout--archive {
-  color: var(--text);
+  font-family: var(--mono);
+  color: var(--ink);
+  background: var(--bg);
+  /* subtle scanline texture, like a CRT — very faint so it stays readable */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.018) 0,
+    rgba(0, 0, 0, 0.018) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }
 
 a {
   color: var(--accent);
-  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+  transition: none;
 }
 
 a:hover,
 a:focus {
-  color: #b5f3ff;
+  color: var(--paper);
+  background: var(--accent);
+  text-decoration: none;
 }
+
+/* ---------- Masthead / nav as a DOS menu bar ---------- */
 
 .masthead {
   position: sticky;
   top: 0;
   z-index: 30;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(7, 17, 31, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: var(--accent);
+  border-bottom: 2px solid var(--ink);
 }
 
 .masthead__inner-wrap {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 0.35rem 1rem;
 }
 
 .greedy-nav {
   background: transparent;
 }
 
-.greedy-nav a {
-  color: var(--text);
+.greedy-nav a,
+.masthead__menu-item--lg a {
+  color: #ffffff;
+  font-family: var(--mono);
   font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .greedy-nav a:hover,
 .greedy-nav a:focus {
-  color: var(--heading);
+  color: var(--accent);
+  background: #ffffff;
 }
 
-.masthead__menu-item--lg a {
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.02em;
+.greedy-nav .visible-links a:before {
+  background: #ffffff;
 }
+
+/* ---------- Layout: sidebar + content ---------- */
 
 .initial-content {
   max-width: var(--content-width);
   margin: 0 auto;
 }
 
-/* #main holds .sidebar and .page/.archive as siblings — make it the
-   two-column grid so the sidebar sits in its own column instead of the
-   theme's position:fixed, which floated it over the "About Me" title. */
 #main {
   display: grid;
   grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: start;
   max-width: var(--content-width);
-  margin: 2em auto 0;
+  margin: 1.5em auto 0;
+  padding: 0 1rem;
 }
 
 .page,
@@ -160,15 +153,50 @@ a:focus {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 0 4rem;
+  padding: 0 0 3rem;
 }
 
 .page__inner-wrap {
   display: block;
 }
 
-/* Keep the sidebar inside its grid column instead of the theme's
-   position:fixed (which floats it over the "About Me" title on desktop). */
+/* ---------- DOS window "chrome" applied to panels ---------- */
+
+/* Shared window style: double border + hard drop shadow, no rounding. */
+%dos-window {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+  border-radius: 0;
+}
+
+.sidebar .author__content,
+.sidebar .author__urls-wrapper,
+.page__content,
+.archive,
+.list__item {
+  @extend %dos-window;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sidebar .author__content,
+.sidebar .author__urls-wrapper {
+  padding: 1rem 1.1rem;
+}
+
+.page__content {
+  padding: clamp(1.1rem, 2vw, 2rem);
+  position: relative;
+  overflow: visible;
+}
+
+.page__content::before {
+  content: none;
+}
+
+/* ---------- Sidebar ---------- */
+
 .sidebar {
   opacity: 1;
   transform: none;
@@ -183,12 +211,9 @@ a:focus {
 }
 
 .sidebar.sticky {
-  top: 6rem;
+  top: 5.5rem;
 }
 
-/* Vertical spacing between the three sidebar cards:
-   avatar, name/bio panel, and contact-links panel. Force block layout so
-   the theme's table-cell fallback never squeezes them side by side. */
 .sidebar .author__avatar,
 .sidebar .author__content,
 .sidebar .author__urls-wrapper {
@@ -207,52 +232,35 @@ a:focus {
 
 .author__avatar img,
 .author__avatar .author__avatar {
-  border-radius: 24px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-}
-
-.sidebar .author__content,
-.sidebar .author__urls-wrapper,
-.page__content,
-.page__meta,
-.archive,
-.list__item {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.sidebar .author__content,
-.sidebar .author__urls-wrapper {
-  border-radius: var(--radius-md);
-  padding: 1.15rem 1.2rem;
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+  filter: grayscale(12%) contrast(1.02);
 }
 
 .author__name {
-  color: var(--heading);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.55rem;
-  line-height: 1.1;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.15;
 }
 
 .author__bio,
-.author__pronouns,
-.page__meta,
-.archive__item-excerpt,
-.notice {
-  color: var(--text-muted);
+.author__pronouns {
+  color: var(--ink-soft);
+}
+
+.author__bio::before {
+  content: "> ";
+  color: var(--accent-2);
 }
 
 .author__urls li,
 .author__urls a {
-  color: var(--text);
+  color: var(--ink);
 }
 
-/* Let long lines (e.g. "Argonne Leadership Computing Facility (ALCF)")
-   wrap inside the panel instead of overflowing its width. */
 .sidebar .author__urls {
   width: 100%;
 }
@@ -270,140 +278,169 @@ a:focus {
 
 .author__urls a:hover,
 .author__urls a:focus {
-  color: var(--accent);
+  color: var(--paper);
+  background: var(--accent);
 }
 
+/* "Follow" button as a DOS button */
 .author__urls-wrapper .btn {
   width: 100%;
-  border-radius: 999px;
-  border: 1px solid rgba(118, 228, 247, 0.32);
-  background: linear-gradient(135deg, rgba(118, 228, 247, 0.18), rgba(124, 92, 255, 0.22));
-  color: var(--heading);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.55);
 }
 
-.page__content {
-  border-radius: var(--radius-lg);
-  padding: clamp(1.5rem, 2vw, 2.5rem);
-  overflow: hidden;
-  position: relative;
+.author__urls-wrapper .btn:hover,
+.author__urls-wrapper .btn:focus {
+  background: var(--accent);
+  color: #ffffff;
 }
 
-.page__content::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(118, 228, 247, 0.8), transparent);
-}
-
-.page__title {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2.2rem, 5vw, 4.25rem);
-  line-height: 1;
-  color: var(--heading);
-  margin-bottom: 1.5rem;
-}
-
-.page__title::after {
-  content: "";
-  width: 3.5rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 0 18px rgba(118, 228, 247, 0.5);
-}
-
-.page__content > p:first-of-type {
-  font-size: 1.1rem;
-  line-height: 1.85;
-  color: #d8e4f4;
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, rgba(118, 228, 247, 0.08), rgba(124, 92, 255, 0.1));
-  border: 1px solid rgba(118, 228, 247, 0.15);
-}
+/* ---------- Content typography ---------- */
 
 .page__content h1,
 .page__content h2,
 .page__content h3,
 .page__content h4 {
-  color: var(--heading);
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
+/* Section headings rendered like DOS section bars:
+   "== Heading ===============" */
 .page__content h1,
 .page__content h2 {
-  margin-top: 2.4rem;
-  padding-top: 0.2rem;
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.15rem 0.5rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  text-transform: uppercase;
+  color: var(--titlebar-fg);
+  background: var(--titlebar-bg);
+  border: 2px solid var(--ink);
   position: relative;
 }
 
 .page__content h1::before,
 .page__content h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -0.7rem;
-  width: 4rem;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  content: none;
+}
+
+.page__content h1::after,
+.page__content h2::after {
+  content: none;
+}
+
+.page__content h1:first-child,
+.page__content h2:first-child {
+  margin-top: 0;
+}
+
+.page__content h3 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Intro paragraph styled like a boxed terminal readout */
+.page__content > p:first-of-type {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  padding: 1rem 1.1rem;
+  border: 1px dashed var(--ink);
+  background: #fbfbf3;
 }
 
 .page__content p,
 .page__content li {
-  color: var(--text);
-  line-height: 1.78;
-}
-
-.page__content ul,
-.page__content ol {
-  gap: 0.7rem;
+  color: var(--ink);
+  line-height: 1.7;
 }
 
 .page__content li {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+/* DOS-style bullets */
+.page__content ul {
+  list-style: none;
+  padding-left: 1.4rem;
+}
+
+.page__content ul > li::before {
+  content: "\25AA"; /* ▪ */
+  color: var(--accent-2);
+  display: inline-block;
+  width: 1.2rem;
+  margin-left: -1.2rem;
 }
 
 .page__content strong {
-  color: #ffffff;
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .page__content blockquote {
   border-left: 4px solid var(--accent);
-  background: rgba(118, 228, 247, 0.08);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  color: var(--text);
+  background: #f0f0e6;
+  border-radius: 0;
+  color: var(--ink);
 }
+
+.page__content a {
+  text-decoration: underline;
+}
+
+.page__content a:hover,
+.page__content a:focus {
+  color: #ffffff;
+  background: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Footer ---------- */
 
 .page__footer,
 .page__footer footer {
   background: transparent;
+  color: var(--ink-soft);
+}
+
+.page__footer {
+  border-top: 2px solid var(--ink);
+  margin-top: 1rem;
 }
 
 .page__footer footer {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 1rem 1rem 2.5rem;
-  color: var(--text-muted);
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.page__footer a {
+  color: var(--accent);
 }
 
 .archive__item,
 .list__item {
-  border-radius: var(--radius-md);
+  border-radius: 0;
 }
+
+/* ---------- Responsive ---------- */
 
 @media (max-width: 1024px) {
   #main {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding-left: 1em;
-    padding-right: 1em;
   }
 
   .sidebar.sticky {
@@ -414,24 +451,10 @@ a:focus {
 
 @media (max-width: 768px) {
   .masthead__inner-wrap {
-    padding-inline: 1rem;
-  }
-
-  .page {
-    padding-top: 1rem;
+    padding-inline: 0.75rem;
   }
 
   .page__content {
-    padding: 1.2rem;
-    border-radius: 22px;
-  }
-
-  .page__title {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .page__title::after {
-    width: 5rem;
+    padding: 1rem;
   }
 }
