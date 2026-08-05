@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Baixi Sun / 孙百西"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Baixi Sun"
 description              : &description "personal description"
 url                      : https://sunbaixi.com
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
