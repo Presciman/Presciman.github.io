@@ -22,13 +22,9 @@ My research interests include AI for large-scale data infrastructure, high-perfo
 News
 ======
 * I joined Argonne Leadership Computing Facility (ALCF) as a postdoctoral appointee!
-
 * Collaborating with IU Medical School exploring early stage cancer detection via tissue image and SNP analysis!
-
 * Serve as a student volunteer at [SC25](https://sc25.supercomputing.org/)!
-
 * Start internship at ByteDance in San Jose May 2025!
-
 * COMPSO paper got accepted to PPoPP 2025!
 
 Research Vision
