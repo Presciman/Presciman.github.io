@@ -8,6 +8,8 @@ redirect_from:
   - /about.html
 ---
 
+About Me
+======
 I am a Postdoctoral Appointee at the Argonne Leadership Computing Facility (ALCF). My research centers on scalable data infrastructure and software systems for artificial intelligence (AI), as well as AI-driven methods for efficient data management.
 
 I received my Ph.D. in Intelligent Systems Engineering from Indiana University Bloomington, under the supervision of Dr. Fengguang Song. My dissertation explored efficient data management across storage and memory, communication, and compression for scalable AI training and inference. Before that, I earned an M.S. in Computer Science from the University of California, Riverside.
