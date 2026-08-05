@@ -137,32 +137,72 @@ a:focus {
   letter-spacing: 0.02em;
 }
 
-.initial-content,
-.page {
+.initial-content {
   max-width: var(--content-width);
   margin: 0 auto;
 }
 
-.page {
+/* #main holds .sidebar and .page/.archive as siblings — make it the
+   two-column grid so the sidebar sits in its own column instead of the
+   theme's position:fixed, which floated it over the "About Me" title. */
+#main {
+  display: grid;
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  max-width: var(--content-width);
+  margin: 2em auto 0;
+}
+
+.page,
+.archive {
   float: none;
-  width: min(100%, calc(var(--content-width) - 2rem));
-  padding: 2rem 1rem 4rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 4rem;
 }
 
 .page__inner-wrap {
-  display: grid;
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
+  display: block;
 }
 
+/* Keep the sidebar inside its grid column instead of the theme's
+   position:fixed (which floats it over the "About Me" title on desktop). */
 .sidebar {
   opacity: 1;
   transform: none;
+  position: sticky;
+  float: none;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  overflow: visible;
+  padding-top: 0;
+  padding-right: 0;
 }
 
 .sidebar.sticky {
   top: 6rem;
+}
+
+/* Vertical spacing between the three sidebar cards:
+   avatar, name/bio panel, and contact-links panel. Force block layout so
+   the theme's table-cell fallback never squeezes them side by side. */
+.sidebar .author__avatar,
+.sidebar .author__content,
+.sidebar .author__urls-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.sidebar .author__avatar {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sidebar .author__content {
+  margin-bottom: 1.5rem;
 }
 
 .author__avatar img,
@@ -209,6 +249,23 @@ a:focus {
 .author__urls li,
 .author__urls a {
   color: var(--text);
+}
+
+/* Let long lines (e.g. "Argonne Leadership Computing Facility (ALCF)")
+   wrap inside the panel instead of overflowing its width. */
+.sidebar .author__urls {
+  width: 100%;
+}
+
+.sidebar .author__urls li {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.sidebar .author__urls a {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .author__urls a:hover,
@@ -342,8 +399,11 @@ a:focus {
 }
 
 @media (max-width: 1024px) {
-  .page__inner-wrap {
+  #main {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   .sidebar.sticky {
